@@ -90,6 +90,6 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     })
 
     it('envia o formuário com sucesso usando um comando customizado', function() {
-        cy.renan()
+        cy.fillMandatoryFieldsAndSubmit()
     })
 })
