@@ -111,4 +111,20 @@ describe('Central de Atendimento ao Cliente TAT', function() {
           .should('have.value', 'blog')
     })
 
+    it('marca o tipo de atendimento "Feedback"', function() {
+        cy.get('input[type="radio"][value="feedback"]')
+            .check()
+            .should('have.value', 'feedback')
+
+    })
+
+    it('marca cada tipo de atendimento', function() {
+        cy.get('input[type="radio"]')
+            .should('have.lenght', 3)
+            .each(function($radio) {
+                cy.wrap($radio).check() // cy.wrap - Encapsula como um objeto do cypress
+                cy.wrap($radio).should('be.checked')
+            })
+
+    })
 })
