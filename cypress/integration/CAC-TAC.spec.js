@@ -147,9 +147,14 @@ describe('Central de Atendimento ao Cliente TAT', function() {
     //    })
     // })
 
-    it.only('verifica que a politica de privacidade abre em outra aba sem a necessidade de um click', function() {
+    it('verifica que a politica de privacidade abre em outra aba sem a necessidade de um click', function() {
         cy.get('#privacy a').should('have.attr', 'target', '_blank')
 
     })
 
+    it('acessa a pagina de politica de privacidade removendo o target e entao clicando no link', function() {
+        cy.get('#privacy a')
+            .invoke('removeAttr', 'target')
+
+    })
 })
