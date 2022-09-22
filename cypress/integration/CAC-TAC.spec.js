@@ -45,7 +45,7 @@ describe('Central de Atendimento ao Cliente TAT', function() {
         cy.get('#firstName').type('Renan')
         cy.get('#lastName').type('Moreira')
         cy.get('#email').type('renanmoreira.po@gmail.com')
-        cy.get('#phone-checkbox').click()
+        cy.get('#phone-checkbox').check()
         // cy.get('#phone').type('85992169174') // Vai aparecer mensagem de error pois marquei a caixa do telefone mas nao escrevi o telefone
         cy.get('#open-text-area').type('Teste')
         cy.get('button[type="submit"]').click()
@@ -131,10 +131,19 @@ describe('Central de Atendimento ao Cliente TAT', function() {
    it('marca ambos checkboxes, depois desmarca o último', function() {
         cy.get('input[type="checkbox"]')
             .check()
+            .should('be.checked')
             .last()
             .uncheck()
             .should('not.be.checked')
 
     })
 
+    // it.only('seleciona um arquivo da pasta fixtures', function() {
+    //        cy.get('input[type="file"]')
+    //        .should('not.have.value')
+    //        .selectFile('./cypress/fixtures/example.json')
+    //        .should(function($input) {
+    //            expect($input[0].files[0].name).to.equal('example.json')
+    //    })
+    // })
 })
